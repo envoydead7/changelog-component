@@ -58,6 +58,36 @@ h1 {
     padding-left: 1.2rem;
 }
 
+.scroll-container {
+    position: relative;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.scroll-content {
+    height: 200vh;
+    padding: 2rem;
+
+}
+
+.scroll-content::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background-color: #007BFF;
+    width: 0%;
+    animation: scroll-border linear;
+    animation-timeline: scroll();
+    animation-fill-mode: forwards;
+}
+
+@keyframes scroll-border {
+    to {
+        width: 100%;
+    }
+}
 @media(max-width: 1024px) {
     .entry {
         flex-direction: column;
